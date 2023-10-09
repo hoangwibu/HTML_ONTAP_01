@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Background</title>
+    <style>
+        /* CSS để tùy chỉnh kích thước của video và đặt nó làm nền */
+        video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* Đặt lớp z-index thấp hơn để video ở phía sau nội dung */
+        }
+
+        /* CSS để căn giữa nội dung trang */
+        .content {
+            text-align: center;
+            padding: 50px;
+            background-color: rgba(255, 255, 255, 0.7); /* Đặt màu nền với độ trong suốt */
+        }
+    </style>
+</head>
+<body>
+    <video autoplay muted loop>
+        <source src="video.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <div class="content">
+        <h1>Trang với Video Background</h1>
+        <p>Xin chào! Đây là trang với video chạy ở nền.</p>
+    </div>
+</body>
+</html>

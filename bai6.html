@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Local Storage Example</title>
+</head>
+
+<body>
+    <h1>Local Storage Example</h1>
+    <label for="inputValue">Nhập một giá trị:</label>
+    <input type="text" id="inputValue">
+    <button onclick="saveToLocalStorage()">Lưu vào Local Storage</button>
+    <p id="displayValue"></p>
+    <script>
+        // Hàm này được gọi khi người dùng nhấn nút "Lưu vào Local Storage"
+        function saveToLocalStorage() {
+            // Lấy giá trị từ ô input
+            var inputValue = document.getElementById("inputValue").value;
+
+            // Kiểm tra xem Local Storage có được hỗ trợ không
+            if (typeof (Storage) !== "undefined") {
+                // Lưu giá trị vào Local Storage với key là "storedValue"
+                localStorage.setItem("storedValue", inputValue);
+
+                // Hiển thị thông báo
+                alert("Giá trị đã được lưu vào Local Storage.");
+
+                // Gọi hàm hiển thị giá trị từ Local Storage
+                displayFromLocalStorage();
+            } else {
+                alert("Trình duyệt của bạn không hỗ trợ Local Storage.");
+            }
+        }
+
+        // Hàm này hiển thị giá trị từ Local Storage
+        function displayFromLocalStorage() {
+            // Lấy giá trị từ Local Storage với key là "storedValue"
+            var storedValue = localStorage.getItem("storedValue");
+
+            // Hiển thị giá trị lên trang web
+            var displayElement = document.getElementById("displayValue");
+            if (storedValue) {
+                displayElement.textContent = "Giá trị từ Local Storage: " + storedValue;
+            } else {
+                displayElement.textContent = "Chưa có giá trị trong Local Storage.";
+            }
+        }
+
+        // Gọi hàm hiển thị giá trị từ Local Storage khi trang web được tải
+        window.onload = function () {
+            displayFromLocalStorage();
+        };
+
+    </script>
+</body>
+
+</html>
